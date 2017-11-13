@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="game-style.css"/>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<h2 th:text="${game.title}">(Game Title)</h2>
+		</header>
+		
+		<aside class="sidebar">
+			<p>
+				<span> Time required to play: </span>
+				<span th:text="${game.minutesToPlay}"> (minutes) </span>
+			</p>
+			
+			<p> 
+			<span> Challenge level: </span>
+			<span th:text="${game.challengeLevel}"> (level) </span>
+			</p>
+			<h3>Review</h3>
+			<p th:text="${game.review}"> (This game is amazing!) </p>
+		</aside>
+		
+		<article class="content">
+			<img class="gamepic" th:src="${game.getImgUrl()}" alt="picture of game"/> 
+		</article>
+		
+	</div> 
+	
+	<footer class="footer">	
+		
+		<a th:href="@{http://localhost:8080/playerNum(id=${game.playerNum.id})}">Back</a>
+		
+		<h5>
+			<span> Image source: </span>
+			<span th:text="${game.imgSource}"> (level) </span>
+		</h5>
+						
+	</footer>
+			
+	  
+			
+</body>
+</html>
